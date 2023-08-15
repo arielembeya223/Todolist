@@ -36,22 +36,40 @@ export function checkbox(){
     }
 }
  export function disapair(){
-    let is = document.querySelector("i")
+    let is = document.querySelectorAll(".bi-trash")
      for(let i of is){
-        i.pa
+        i.addEventListener("click",function(e){
+            let parrent = i.parentElement.parentElement
+            parrent.classList.add("d-none")
+        })
      }
+ }
+ function ifclick(document1,document2,document3){
+    document1.addEventListener('click',function(e){
+         document1.classList.add("active")
+         document2.classList.remove("active")
+         document3.classList.remove("active")
+    })
  }
 export function bouton()
 {
-   let buttons = document.querySelectorAll("button")
-   for(let button of buttons){
-    button.addEventListener("click",function(e){
-        if(button.classList.contains("active")){
-           button.classList.remove("active")
-        }
-        button.classList.add("active")
+    const bouton1 = document.querySelector('button[data-filter="todo"]')
+    const bouton2= document.querySelector('button[data-filter="all"]')
+    const bouton3 = document.querySelector('button[data-filter="done"]')
+    ifclick(bouton1,bouton2,bouton3)
+    ifclick(bouton2,bouton1,bouton3)
+    ifclick(bouton3,bouton2,bouton1)
+}
+export function checked()
+{
+let inputs = document.querySelectorAll(".form-check-input")
+for (let input of inputs){
+    input.addEventListener("change", function (e) {
+        console.log("bonjour")
     })
-   }
+}
+}
+export function filter()
+{
 
 }
-
